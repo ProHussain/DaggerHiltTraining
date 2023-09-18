@@ -11,9 +11,14 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var downloader: Downloader
+
+    @Inject
+    lateinit var authRepo: AuthRepo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.e("MainActivity",downloader.downloadData())
+        Log.e("MainActivity", authRepo.login("hashmac","123456").toString())
+        authRepo.logout()
     }
 }
