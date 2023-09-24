@@ -1,4 +1,4 @@
-package com.hashmac.daggerhilttraining
+package com.hashmac.daggerhilttraining.sample
 
 import javax.inject.Inject
 

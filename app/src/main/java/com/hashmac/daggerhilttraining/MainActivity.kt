@@ -1,28 +1,23 @@
 package com.hashmac.daggerhilttraining
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var downloader: Downloader
-
-    companion object {
-        var name = "HashMac Learning, Programming, and Simplifying"
-    }
-
-    @Inject
-    lateinit var authRepo: AuthRepo
+    private val viewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.e("MainActivity",downloader.downloadData())
-        Log.e("MainActivity", authRepo.login("hashmac","123456").toString())
-        authRepo.logout()
+        viewModel.response.observe(this) {
+            Log.e("MainActivity", "Code: ${it.code}")
+            Log.e("MainActivity", "Status: ${it.status}")
+            Log.e("MainActivity", "Total: ${it.total}")
+            Log.e("MainActivity", "Data: ${it.data}")
+        }
     }
 }

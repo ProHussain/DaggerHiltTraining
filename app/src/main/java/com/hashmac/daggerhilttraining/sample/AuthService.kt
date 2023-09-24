@@ -1,4 +1,4 @@
-package com.hashmac.daggerhilttraining
+package com.hashmac.daggerhilttraining.sample
 
 import android.util.Log
 import javax.inject.Inject
@@ -8,7 +8,8 @@ interface AuthService {
     fun logout()
 }
 
-class AuthServiceImpl @Inject constructor(private val user:String, private val auth2:String) : AuthService {
+class AuthServiceImpl @Inject constructor(private val user:String, private val auth2:String) :
+    AuthService {
     override fun login(username: String, password: String): Boolean {
         Log.e("AuthService", "login: $username")
         return true

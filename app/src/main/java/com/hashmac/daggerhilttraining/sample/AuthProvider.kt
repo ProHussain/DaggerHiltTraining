@@ -1,5 +1,6 @@
-package com.hashmac.daggerhilttraining
+package com.hashmac.daggerhilttraining.sample
 
+import com.hashmac.daggerhilttraining.MainActivity
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +23,7 @@ object AuthProvider {
     @Provides
     @FirstAuth
     fun provideUser(): String {
-        return MainActivity.name
+        return "Hashmac"
     }
 
     @Provides
