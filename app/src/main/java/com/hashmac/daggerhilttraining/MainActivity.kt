@@ -12,6 +12,10 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var downloader: Downloader
 
+    companion object {
+        var name = "HashMac Learning, Programming, and Simplifying"
+    }
+
     @Inject
     lateinit var authRepo: AuthRepo
     override fun onCreate(savedInstanceState: Bundle?) {
